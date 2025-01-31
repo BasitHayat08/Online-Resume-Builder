@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder Project Presentation</title>
+    <style>
+        /* Navbar Styling */
+        
+        .navbar-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .navbar-links li {
+            display: inline;
+        }
+        
+        .navbar-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .navbar-links a:hover {
+            color: black;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1.5s ease-in-out;
+        }
+        
+        section h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        
+        .team {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .team-member {
+            text-align: center;
+            margin: 10px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .read-more:hover {
+            background-color: #0056b3;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(10px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar bg-white">
+            <div class="container">
+                <ul class="navbar-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+        <h1>Resume Builder Project Presentation</h1>
+    </header>
+
+    <div class="container">
+
+        <section>
+            <h2>Introduction</h2>
+            <p>Our Resume Builder Project aims to simplify the resume creation process by providing professional, user-friendly templates. This platform empowers users to craft high-quality resumes with minimal effort.</p>
+            <div class="hidden" id="intro-details">
+                <p>The project addresses the need for quick, easy-to-use tools in job applications. By offering pre-designed templates, users save time and focus on content, ensuring their resumes stand out.</p>
+            </div>
+            <button class="read-more" onclick="toggleDetails('intro-details', this)">Read More</button>
+        </section>
+
+        <section>
+            <h2>Team Members</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="assets/images/basit.jpg" alt="Basit Hayat">
+                    <h3>Basit Hayat</h3>
+                    <p>Team Lead</p>
+                    <div class="hidden" id="basit-details">
+                        <p>Basit led the team, managed tasks, and ensured the project was completed successfully, leveraging his extensive development experience.</p>
+                    </div>
+                    <button class="read-more" onclick="toggleDetails('basit-details', this)">Read More</button>
+                </div>
+                <div class="team-member">
+                    <img src="assets/images/farhan.jpeg.jpg" alt="Muhammad Farhan">
+                    <h3>Muhammad Farhan</h3>
+                    <p>Frontend Developer</p>
+                    <div class="hidden" id="farhan-details">
+                        <p>Farhan focused on crafting user interfaces, ensuring a seamless user experience across all devices.</p>
+                    </div>
+                    <button class="read-more" onclick="toggleDetails('farhan-details', this)">Read More</button>
+                </div>
+                <div class="team-member">
+                    <img src="assets/images/mohsina.jpg" alt="Mohsin Ali Khan">
+                    <h3>Mohsin Ali Khan</h3>
+                    <p>Content Integration</p>
+                    <div class="hidden" id="mohsin-details">
+                        <p>Mohsin ensured all content was accurate and effectively integrated into the website, enhancing usability.</p>
+                    </div>
+                    <button class="read-more" onclick="toggleDetails('mohsin-details', this)">Read More</button>
+                </div>
+                <div class="team-member">
+                    <img src="assets/images/huziafa.jpg" alt="Huzaifa Razaq">
+                    <h3>Huzaifa Razaq</h3>
+                    <p>Tester</p>
+                    <div class="hidden" id="huziafa-details">
+                        <p>Huziafa conducted rigorous testing to ensure the project met all quality standards and was free of bugs.</p>
+                    </div>
+                    <button class="read-more" onclick="toggleDetails('huziafa-details', this)">Read More</button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Project Features</h2>
+            <ul>
+                <li>Three pre-designed resume templates</li>
+                <li>Easy-to-navigate user interface</li>
+                <li>Additional resources: FAQ, Privacy Policy, Terms & Conditions, About, and Contact pages</li>
+                <li>Responsive design for mobile users</li>
+            </ul>
+            <div class="hidden" id="features-details">
+                <p>Each template is customizable, allowing users to adjust fonts, colors, and sections to match their needs. The user interface is intuitive, ensuring a hassle-free experience for all users.</p>
+            </div>
+            <button class="read-more" onclick="toggleDetails('features-details', this)">Read More</button>
+        </section>
+
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Resume Builder Project Presentation</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f4f4f9;
+                    overflow-x: hidden;
+                }
+                
+                .container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 20px;
+                }
+                
+                header {
+                    background-color: #007bff;
+                    color: white;
+                    padding: 20px 0;
+                    text-align: center;
+                    animation: fadeIn 2s ease-in-out;
+                }
+                
+                header h1 {
+                    margin: 0;
+                    font-size: 2.5em;
+                }
+                
+                section {
+                    margin: 20px 0;
+                    padding: 20px;
+                    background-color: white;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                    animation: slideIn 1.5s ease-in-out;
+                }
+                
+                section h2 {
+                    color: #007bff;
+                    margin-bottom: 10px;
+                }
+                
+                .team {
+                    display: flex;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+                }
+                
+                .team-member {
+                    text-align: center;
+                    margin: 10px;
+                    animation: fadeInUp 1s ease-in-out;
+                }
+                
+                .team-member img {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-bottom: 10px;
+                }
+                
+                footer {
+                    background-color: #333;
+                    color: white;
+                    text-align: center;
+                    padding: 10px 0;
+                    margin-top: 20px;
+                }
+                
+                .read-more {
+                    display: inline-block;
+                    margin-top: 10px;
+                    padding: 8px 15px;
+                    background-color: #007bff;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease;
+                    cursor: pointer;
+                }
+                
+                .read-more:hover {
+                    background-color: #0056b3;
+                }
+                
+                .hidden {
+                    display: none;
+                }
+                
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+                
+                @keyframes slideIn {
+                    from {
+                        transform: translateY(20px);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                }
+                
+                @keyframes fadeInUp {
+                    from {
+                        transform: translateY(10px);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                }
+            </style>
+
+
+            <div class="container">
+
+                <section>
+                    <h2>Technologies Used</h2>
+                    <ul>
+                        <li><b>HTML5:</b> Used for structuring the web pages.</li>
+                        <li><b>CSS3:</b> Applied for styling and animations.</li>
+                        <li><b>JavaScript:</b> Added interactivity to the project.</li>
+                        <li><b>Design Mockups:</b> Created using Adobe XD.</li>
+                    </ul>
+                    <div class="hidden" id="tech-details">
+                        <h3>HTML5</h3>
+                        <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It structures the content of a webpage and includes elements like headings, paragraphs, links, images, and forms. Key features of HTML5 include:</p>
+                        <ul>
+                            <li>Semantic Elements: Elements like <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, and <code>&lt;article&gt;</code> improve readability and accessibility.</li>
+                            <li>Multimedia Support: Direct support for audio (<code>&lt;audio&gt;</code>) and video (<code>&lt;video&gt;</code>).</li>
+                            <li>Offline Storage: Local and session storage for offline web applications.</li>
+                        </ul>
+
+                        <h3>CSS3</h3>
+                        <p>CSS (Cascading Style Sheets) is used to style the HTML structure. It controls the layout, colors, fonts, and responsiveness of a website. CSS3 brought many new features, such as:</p>
+                        <ul>
+                            <li>Media Queries: Enable responsive design for different screen sizes.</li>
+                            <li>Animations: Add dynamic effects to elements using <code>@keyframes</code>.</li>
+                            <li>Flexbox and Grid: Simplify layout design with powerful alignment tools.</li>
+                        </ul>
+
+                        <h3>JavaScript</h3>
+                        <p>JavaScript is a scripting language that makes web pages interactive. It can be used for form validation, creating dynamic content, and much more. Some key features include:</p>
+                        <ul>
+                            <li>Event Handling: Respond to user actions like clicks and key presses.</li>
+                            <li>DOM Manipulation: Dynamically update the structure and content of a webpage.</li>
+                            <li>Integration: Works seamlessly with HTML and CSS to build complete web applications.</li>
+                        </ul>
+
+                        <h3>Adobe XD</h3>
+                        <p>Adobe XD is a design tool used to create prototypes and mockups for web and mobile applications. Features include:</p>
+                        <ul>
+                            <li>Interactive Prototyping: Test and validate designs before development.</li>
+                            <li>Design Systems: Create reusable components for consistency.</li>
+                            <li>Collaboration: Share designs with team members for feedback.</li>
+                        </ul>
+                    </div>
+                    <button class="read-more" onclick="toggleDetails('tech-details', this)">Read More</button>
+                </section>
+
+            </div>
+
+
+            <script>
+                function toggleDetails(id, button) {
+                    const details = document.getElementById(id);
+                    if (details.classList.contains('hidden')) {
+                        details.classList.remove('hidden');
+                        button.textContent = "Read Less";
+                    } else {
+                        details.classList.add('hidden');
+                        button.textContent = "Read More";
+                    }
+                }
+            </script>
+</body>
+
+</html>
+
+
+<section>
+    <h2>Future Enhancements</h2>
+    <p>We plan to integrate features like dynamic template generation, user authentication, and customizable themes to enhance user experience further.</p>
+    <div class="hidden" id="future-details">
+        <p>These features will enable users to create accounts, save progress, and enjoy a wider range of customization options, making the platform even more user-centric.</p>
+    </div>
+    <button class="read-more" onclick="toggleDetails('future-details', this)">Read More</button>
+</section>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 Resume Builder Project. All Rights Reserved.</p>
+</footer>
+
+<script>
+    function toggleDetails(id, button) {
+        const details = document.getElementById(id);
+        if (details.classList.contains('hidden')) {
+            details.classList.remove('hidden');
+            button.textContent = "Read Less";
+        } else {
+            details.classList.add('hidden');
+            button.textContent = "Read More";
+        }
+    }
+</script>
+</body>
+
+</html>

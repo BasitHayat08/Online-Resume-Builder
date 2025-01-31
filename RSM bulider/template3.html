@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: auto;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .preview {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            position: relative;
+        }
+        
+        .resume-section {
+            margin-bottom: 20px;
+        }
+        
+        .resume-section h2 {
+            color: #007bff;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #007bff;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+        }
+        
+        .resume-section p {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+        
+        .profile-pic {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile-pic img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #007bff;
+        }
+        
+        #upload-pic {
+            display: none;
+        }
+        
+        label[for="upload-pic"] {
+            display: block;
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px auto;
+            width: fit-content;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        label[for="upload-pic"]:hover {
+            background-color: #0056b3;
+        }
+        
+        .print-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .print-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        @media print {
+            label[for="upload-pic"],
+            .form-group {
+                display: none;
+            }
+        }
+        
+        [contenteditable]:empty:before {
+            content: attr(data-placeholder);
+            color: gray;
+        }
+        
+        [contenteditable]:focus:before {
+            content: "";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Customizable Resume Builder</h1>
+
+        <!-- Font and Color Customization -->
+        <div class="form-group">
+            <label for="font-style">Choose Font Style:</label>
+            <select id="font-style">
+                <option value="Arial">Arial</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Tahoma">Tahoma</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="bg-color">Background Color:</label>
+            <input type="color" id="bg-color" value="#ffffff">
+        </div>
+
+        <div class="form-group">
+            <label for="text-color">Text Color:</label>
+            <input type="color" id="text-color" value="#000000">
+        </div>
+
+        <!-- Resume Preview -->
+        <div class="preview" id="resume-preview">
+            <!-- Profile Picture -->
+            <div class="profile-pic">
+                <input type="file" id="upload-pic" accept="image/*">
+                <label for="upload-pic">Upload Profile Picture</label>
+                <img id="profile-pic" src="https://via.placeholder.com/150" alt="Profile Picture">
+            </div>
+
+            <!-- Name and Designation -->
+            <div class="resume-section">
+                <h2>Personal Information</h2>
+                <p contenteditable="true" data-placeholder="Enter your name"></p>
+                <p contenteditable="true" data-placeholder="Enter your designation"></p>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="resume-section">
+                <h2>Contact Information</h2>
+                <p contenteditable="true" data-placeholder="Enter your phone number"></p>
+                <p contenteditable="true" data-placeholder="Enter your email"></p>
+                <p contenteditable="true" data-placeholder="Enter your address"></p>
+            </div>
+
+            <!-- Summary -->
+            <div class="resume-section">
+                <h2>Summary</h2>
+                <p contenteditable="true" data-placeholder="Write your professional summary"></p>
+            </div>
+
+            <!-- Skills -->
+            <div class="resume-section">
+                <h2>Skills</h2>
+                <p contenteditable="true" data-placeholder="List your skills"></p>
+            </div>
+
+            <!-- Experience -->
+            <div class="resume-section">
+                <h2>Experience</h2>
+                <p contenteditable="true" data-placeholder="Describe your work experience"></p>
+            </div>
+
+            <!-- Education -->
+            <div class="resume-section">
+                <h2>Education</h2>
+                <p contenteditable="true" data-placeholder="List your education"></p>
+            </div>
+
+            <!-- Projects -->
+            <div class="resume-section">
+                <h2>Projects</h2>
+                <p contenteditable="true" data-placeholder="Describe your projects"></p>
+            </div>
+        </div>
+
+        <!-- Print Button -->
+        <button class="print-btn" onclick="printResume()">Print Resume</button>
+    </div>
+
+    <script>
+        // JavaScript for Template 3
+
+        // Font and Color Customization
+        document.getElementById('font-style').addEventListener('change', function() {
+            document.getElementById('resume-preview').style.fontFamily = this.value;
+        });
+
+        document.getElementById('bg-color').addEventListener('input', function() {
+            document.getElementById('resume-preview').style.backgroundColor = this.value;
+        });
+
+        document.getElementById('text-color').addEventListener('input', function() {
+            document.getElementById('resume-preview').style.color = this.value;
+        });
+
+        // Upload Profile Picture
+        document.getElementById('upload-pic').addEventListener('change', function(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                document.getElementById('profile-pic').src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        });
+
+        // Print Functionality
+        function printResume() {
+            const printContents = document.getElementById('resume-preview').innerHTML;
+            const originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = `<div>${printContents}</div>`;
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
+    </script>
+</body>
+
+</html>

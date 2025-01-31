@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Template 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-section,
+        .preview-section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-section {
+            flex: 1;
+        }
+        
+        .preview-section {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1,
+        h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+        
+        label {
+            display: block;
+            margin: 8px 0 4px;
+            font-weight: bold;
+        }
+        
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .profile-pic {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile-pic img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #007bff;
+        }
+        
+        .preview-section .section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+        
+        .skills-list,
+        .list-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .skills-list li,
+        .list-items li {
+            background-color: #f0f0f0;
+            margin: 5px 0;
+            padding: 8px 10px;
+            border-radius: 4px;
+        }
+        
+        button {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Form Section -->
+        <div class="form-section">
+            <h1>Fill Your Details</h1>
+            <form id="resume-form">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" placeholder="Enter your full name" oninput="updatePreview()">
+
+                <label for="designation">Designation</label>
+                <input type="text" id="designation" placeholder="Your job title" oninput="updatePreview()">
+
+                <label for="phoneno">Phone Number</label>
+                <input type="text" id="phoneno" placeholder="Enter your phone number" oninput="updatePreview()">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" oninput="updatePreview()">
+
+                <label for="address">Address</label>
+                <textarea id="address" placeholder="Enter your address" oninput="updatePreview()"></textarea>
+
+                <label for="summary">Summary</label>
+                <textarea id="summary" placeholder="Write a short summary about yourself" oninput="updatePreview()"></textarea>
+
+                <label for="skills">Skills (comma-separated)</label>
+                <input type="text" id="skills" placeholder="e.g., HTML, CSS, JavaScript" oninput="updatePreview()">
+
+                <label for="experience">Experience (comma-separated)</label>
+                <textarea id="experience" placeholder="List your experiences" oninput="updatePreview()"></textarea>
+
+                <label for="education">Education (comma-separated)</label>
+                <textarea id="education" placeholder="Enter your educational qualifications" oninput="updatePreview()"></textarea>
+                <!-- DEV. BY BASITHAYAT08 -->
+                <label for="projects">Projects (comma-separated)</label>
+                <textarea id="projects" placeholder="Enter your project details" oninput="updatePreview()"></textarea>
+
+                <label for="profile-pic">Profile Picture</label>
+                <input type="file" id="profile-pic" accept="image/*" onchange="loadProfilePicture(event)">
+            </form>
+        </div>
+
+        <!-- Preview Section -->
+        <div class="preview-section">
+            <div class="profile-pic">
+                <img src="https://via.placeholder.com/150" alt="Profile Picture" id="profile-pic-preview">
+            </div>
+
+            <h2 id="preview-fullname">Your Name</h2>
+            <p id="preview-designation">Your Designation</p>
+
+            <div class="section">
+                <h3 class="section-title">Contact Information</h3>
+                <p id="preview-phoneno">Phone: </p>
+                <p id="preview-email">Email: </p>
+                <p id="preview-address">Address: </p>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Summary</h3>
+                <p id="preview-summary">Your professional summary will appear here.</p>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Skills</h3>
+                <ul class="skills-list" id="preview-skills"></ul>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Experience</h3>
+                <ul class="list-items" id="preview-experience"></ul>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Education</h3>
+                <ul class="list-items" id="preview-education"></ul>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Projects</h3>
+                <ul class="list-items" id="preview-projects"></ul>
+            </div>
+
+            <button onclick="printResume()">Print Resume</button>
+        </div>
+    </div>
+
+    <script>
+        function updatePreview() {
+            document.getElementById("preview-fullname").innerText = document.getElementById("fullname").value || "Your Name";
+            document.getElementById("preview-designation").innerText = document.getElementById("designation").value || "Your Designation";
+            document.getElementById("preview-phoneno").innerText = "Phone: " + (document.getElementById("phoneno").value || "");
+            document.getElementById("preview-email").innerText = "Email: " + (document.getElementById("email").value || "");
+            document.getElementById("preview-address").innerText = "Address: " + (document.getElementById("address").value || "");
+            document.getElementById("preview-summary").innerText = document.getElementById("summary").value || "Your professional summary will appear here.";
+
+            const skills = document.getElementById("skills").value.split(",").map(skill => skill.trim()).filter(skill => skill);
+            document.getElementById("preview-skills").innerHTML = skills.map(skill => `<li>${skill}</li>`).join("");
+
+            const experience = document.getElementById("experience").value.split(",").map(exp => exp.trim()).filter(exp => exp);
+            document.getElementById("preview-experience").innerHTML = experience.map(exp => `<li>${exp}</li>`).join("");
+
+            const education = document.getElementById("education").value.split(",").map(edu => edu.trim()).filter(edu => edu);
+            document.getElementById("preview-education").innerHTML = education.map(edu => `<li>${edu}</li>`).join("");
+
+            const projects = document.getElementById("projects").value.split(",").map(proj => proj.trim()).filter(proj => proj);
+            document.getElementById("preview-projects").innerHTML = projects.map(proj => `<li>${proj}</li>`).join("");
+        }
+
+        function loadProfilePicture(event) {
+            const preview = document.getElementById("profile-pic-preview");
+            preview.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        function printResume() {
+            window.print();
+        }
+    </script>
+</body>
+
+</html>
