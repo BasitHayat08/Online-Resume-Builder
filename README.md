@@ -1,8 +1,5 @@
 # 🚀 Online Resume Builder Web App
 
-Live Demo: onlineresumebuilderweb.netlify.app
-
-
 **Create professional, stylish resumes in minutes!**
 
 ## 🌟 Features
